@@ -161,6 +161,10 @@ body {
     max-width: 80%;
   }
 
+  #results .backdrop-blur-xl {
+    padding-inline: 15px !important;
+  }
+
   #results .grid::-webkit-scrollbar {
     display: none;
   }

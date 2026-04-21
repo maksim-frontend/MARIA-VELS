@@ -320,33 +320,49 @@
     </footer>
 
     <!-- POP-UP Бронирование -->
-    <div id="bookingModal" class="hidden fixed inset-0 bg-black/95 flex items-center justify-center z-[100]">
-      <div class="modal bg-[#1a1a1a] rounded-3xl p-10 max-w-lg w-full mx-4">
+    <div id="bookingModal" class="hidden fixed inset-0 z-[100] flex items-center justify-center">
+
+      <div class="absolute inset-0 bg-black/95 backdrop-blur-md"></div>
+
+      <div class="relative bg-[#1a1a1a] rounded-3xl p-10 max-w-lg w-full mx-4">
+
         <h3 class="text-3xl heading-font mb-6 text-center">Бронирование участия</h3>
         <p class="text-center text-xl mb-8">Программа MARIA VELS | CLUB</p>
+
         <div class="bg-black/60 p-6 rounded-2xl mb-8 space-y-3">
           <p>7 дней • по 2 часа</p>
           <p>Офлайн в центре Москвы</p>
           <p class="font-semibold text-2xl">50 000 ₽</p>
         </div>
+
         <div class="space-y-5 text-sm" id="bookingCheckboxes">
+
           <label class="flex items-start gap-3 cursor-pointer">
             <input type="checkbox" onchange="checkBookingForm()" class="accent-pink-500 mt-1">
             Я ознакомлена и принимаю Правила участия, Программу обучения и Условия оплаты и возврата
           </label>
+
           <label class="flex items-start gap-3 cursor-pointer">
             <input type="checkbox" onchange="checkBookingForm()" class="accent-pink-500 mt-1">
             Я ознакомлена с Политикой обработки персональных данных и даю согласие
           </label>
+
           <label class="flex items-start gap-3 cursor-pointer">
             <input type="checkbox" onchange="checkBookingForm()" class="accent-pink-500 mt-1">
             Я даю согласие на получение информационных сообщений
           </label>
+
         </div>
-        <button id="payButton" onclick="goToPayment()" disabled class="glow-btn w-full mt-8 py-6 pink-gradient text-white font-semibold rounded-3xl flex items-center justify-center disabled:opacity-50">
+
+        <button id="payButton"
+                onclick="goToPayment()"
+                disabled
+                class="glow-btn w-full mt-8 py-6 pink-gradient text-white font-semibold rounded-3xl flex items-center justify-center disabled:opacity-50">
           Перейти к оплате
         </button>
-        <button onclick="closeBookingModal()" class="mt-4 w-full py-4 text-white/70">Закрыть</button>
+        <button onclick="closeBookingModal()" class="mt-4 w-full py-4 text-white/70">
+          Закрыть
+        </button>
       </div>
     </div>
 
@@ -575,11 +591,20 @@
       modal.classList.remove('hidden');
       modal.classList.add('flex');
       }
-      function closeDocModal() {
-      const modal = document.getElementById('docModal');
+      
+      function openModal(id) {
+      const modal = document.getElementById(id);
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal(id) {
+      const modal = document.getElementById(id);
       modal.classList.add('hidden');
       modal.classList.remove('flex');
-      }
+      document.body.style.overflow = '';
+    }
       document.addEventListener('DOMContentLoaded', () => {
       addRippleToButtons();
       });
